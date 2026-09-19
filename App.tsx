@@ -11,26 +11,23 @@ export default function App() {
       {/* View уже по-умолчанию flex-контейнер */}
       <View style={{
         backgroundColor: 'yellow',
-        // по вспомогательной оси
-        // alignItems: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'flex-end',
         height: 500,
-        // центрует внутри контейнера - по основной оси
-        // justifyContent: 'center'
+        flexDirection: 'row',
+        // перенос элементов которые не влезают
+        // flexWrap: 'wrap'
 
-        // размазывает равномерно в края
-        // justifyContent: 'space-between'
+        // то же но в обратном направлении
+        flexWrap: 'wrap-reverse',
 
-        // почти то же самое только с краями
-        // justifyContent: 'space-around'
-
-        // равное расстояние везде
-        justifyContent: 'space-evenly'
-
+        // то как располагается весь контент внутри
+        alignContent: 'center'
       }}>
-        <View style={{ backgroundColor: 'tomato', height: 100 }}><Text>1</Text></View>
-        <View style={{ backgroundColor: 'purple', width: 100, height: 100 }}></View>
-        <View style={{ backgroundColor: 'green', width: 100, height: 100 }}></View>
+        <View style={{ backgroundColor: 'tomato', 
+          // ровно половина ширины
+          width: '50%', height: 100 }}><Text>1</Text></View>
+        <View style={{ backgroundColor: 'purple', width: '50%', height: 100 }}></View>
+        <View style={{ backgroundColor: 'green', width: '50%', height: 100 }}></View>
       </View>
     </View>
   );
