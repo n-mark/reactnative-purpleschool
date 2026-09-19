@@ -7,10 +7,10 @@ export default function App() {
       <View>
         <Text>你好！</Text>
       </View>
-      <Text>Мой первый app</Text>
+      <Text style={styles.textStyle}>Мой первый app</Text>
       <StatusBar style="auto" />
-      <TextInput  value='привет'/>
-      <Button title="knopka"/>
+      <TextInput value='привет' />
+      <Button title="knopka" />
     </View>
   );
 }
@@ -22,4 +22,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textStyle: { color: 'blue', fontSize: 24, borderWidth: 1, borderColor: 'blue', margin: 10, padding: 10 }
 });
