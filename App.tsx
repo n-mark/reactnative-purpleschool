@@ -13,24 +13,23 @@ export default function App() {
         backgroundColor: 'yellow',
         alignItems: 'flex-end',
         height: 500,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        // если есть перенос элементов - гэп работает и по вертикали и по горизонтали
+        // gap: 10
+
+        // только между строками (основная ось)
+        rowGap: 10
+
+        // только между столбцами (основная ось)
+        // columnGap: 10
       }}>
-        <View style={{ backgroundColor: 'tomato', 
-        // это минимум - базовая ширина меньше которой мы не падаем
-        flexBasis: 100, 
-          // этот займет все остальное пространство
-          flexGrow: 1, 
-          // перераспределяем переполненное пространство
-          flexShrink: 1,
-          height: 100 }}><Text>1</Text></View>
-        <View style={{ backgroundColor: 'purple', flexBasis: 100, 
-          // если у этого тоже есть значит они будут делить место
-          flexGrow: 1, height: 100 }}><Text>12</Text></View>
-        <View style={{ backgroundColor: 'green', 
-        // если не задано - более широкий элемент будет занимать это место
-        // flexBasis: 100, 
-          // если у всех трех - поделят поровну
-          flexGrow: 1, height: 100 }}><Text>13адвапвлапдваплвадплываыв</Text></View>
+        <View style={{
+          backgroundColor: 'tomato', width: '50%',
+          height: 100
+        }}><Text>1</Text></View>
+        <View style={{ backgroundColor: 'purple', width: '50%', height: 100 }}><Text>12</Text></View>
+        <View style={{ backgroundColor: 'green', width: '50%', height: 100 }}><Text>13</Text></View>
       </View>
     </View>
   );
