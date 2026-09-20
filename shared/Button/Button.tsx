@@ -1,27 +1,18 @@
-import { StyleSheet, View, Text, Pressable } from "react-native"
-import { Colors, Radius } from "../tokens";
-import { useState } from "react";
+import { StyleSheet, View, Text, Pressable, PressableProps } from "react-native"
+import { Colors, Fonts, Radius } from "../tokens";
 
-interface BtnProps {
-    text: string
-}
-
-export function Button(props: BtnProps) {
-    const [buttonPressed, setButtonPressed] = useState('');
-
+export function Button({ text, ...props }: PressableProps & { text: string }) {
     return (
-        <Pressable onPress={() => {
-            setButtonPressed('Кнопка нажата');
-        }}>
-            <View style={buttonPressed === '' ? styles.buttonBody : styles.buttonBodyActive}>
-                <Text style={styles.buttonText}>{buttonPressed === '' ? props.text : buttonPressed}</Text>
+        <Pressable {...props}>
+            <View style={styles.button}>
+                <Text style={styles.text}>{text}</Text>
             </View>
         </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
-    buttonBody: {
+    button: {
         width: '100%',
         height: 58,
         borderRadius: Radius.r10,
@@ -37,9 +28,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    buttonText: {
+    text: {
         color: Colors.textWhite,
         fontWeight: '400',
-        fontSize: 18
+        fontSize: Fonts.f18
     }
 });
