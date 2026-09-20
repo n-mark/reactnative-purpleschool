@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Dimensions, TextInput, Button, Image } from 'react-native';
+import { Input } from './shared/Input/Input';
 
 export default function App() {
   // получение размера устройства
@@ -12,8 +13,8 @@ export default function App() {
           source={require('./assets/logo.png')}
           resizeMode='contain' />
         <View style={styles.form}>
-          <TextInput style={styles.input} />
-          <TextInput style={styles.input} />
+          <Input placeholder='Email' />
+          <Input placeholder='Пароль' />
           <Button title='Войти' />
         </View>
         <Text>Восстановить пароль</Text>
