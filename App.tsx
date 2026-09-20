@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Dimensions, TextInput, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TextInput, Image } from 'react-native';
 import { Input } from './shared/Input/Input';
+import { Button } from './shared/Button/Button';
 import { Colors, Gaps } from './shared/tokens';
 import EyeClosedIcon from './assets/icons/eye-closed';
 import EyeOpenedIcon from './assets/icons/eye-opened';
@@ -18,7 +19,8 @@ export default function App() {
         <View style={styles.form}>
           <Input placeholder='Email' />
           <Input isPassword placeholder='Пароль' />
-          <Button title='Войти' />
+          {/* <Button title='Войти' /> */}
+          <Button text='Войти'/>
         </View>
         <Text>Восстановить пароль</Text>
       </View>

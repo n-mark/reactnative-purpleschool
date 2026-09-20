@@ -4,7 +4,8 @@ export const Colors = {
     primary: '#6C38CC',
     primaryHover: '#452481',
     link: '#A97BFF',
-    gray: '#AFB2BF'
+    gray: '#AFB2BF',
+    textWhite: '#FAFAFA'
 }
 
 export const Gaps = {
