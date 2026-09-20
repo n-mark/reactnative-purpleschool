@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Dimensions, TextInput, Button, Image } from 'react-native';
 import { Input } from './shared/Input/Input';
+import { Colors, Gaps } from './shared/tokens';
 
 export default function App() {
   // получение размера устройства
@@ -29,18 +30,15 @@ const styles = StyleSheet.create({
     // заполнить все доступное пространство по направлению нашего флекса
     flex: 1,
     padding: 55,
-    backgroundColor: '#16171D'
+    backgroundColor: Colors.black
   },
   content: {
     alignItems: 'center',
-    gap: 50
+    gap: Gaps.g50
   },
   form: {
     alignSelf: 'stretch',
-    gap: 16
-  },
-  input: {
-    backgroundColor: '#2E2D3D'
+    gap: Gaps.g16
   },
   logo: {
     width: 220
