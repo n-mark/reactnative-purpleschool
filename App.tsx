@@ -17,12 +17,10 @@ export default function App() {
           resizeMode='contain' />
         <View style={styles.form}>
           <Input placeholder='Email' />
-          <Input placeholder='Пароль' />
+          <Input isPassword placeholder='Пароль' />
           <Button title='Войти' />
         </View>
         <Text>Восстановить пароль</Text>
-        <EyeClosedIcon />
-        <EyeOpenedIcon />
       </View>
     </View>
   );
