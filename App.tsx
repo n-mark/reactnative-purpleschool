@@ -1,30 +1,22 @@
-import { StyleSheet, Text, View, Dimensions, TextInput, Image, Alert, ToastAndroid, Platform } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import { Input } from './shared/Input/Input';
 import { Button } from './shared/Button/Button';
 import { Colors, Gaps } from './shared/tokens';
-import EyeClosedIcon from './assets/icons/eye-closed';
-import EyeOpenedIcon from './assets/icons/eye-opened';
+import { ErrorNotification } from './shared/ErrorNotification/ErrorNotification';
+import { useState } from 'react';
 
 export default function App() {
+  const [error, setError] = useState<string | undefined>();
+
   // получение размера устройства
   const width = Dimensions.get('window').width;
   const alert = () => {
-    // Alert.alert('Ошибка', 'Неверный логин или пароль', [{
-    //   text: 'Хорошо',
-    //   onPress: () => {},
-    //   style: 'cancel'
-    // }]);
-    if (Platform.OS === 'android') {
-      ToastAndroid.showWithGravity(
-        'Неверный логин или пароль',
-        ToastAndroid.SHORT,
-        ToastAndroid.CENTER
-      );
-    }
+    setError('Неверный логин и пароль');
   }
 
   return (
     <View style={styles.container}>
+      <ErrorNotification error={error}/>
       <View style={styles.content}>
         <Image
           style={styles.logo}
@@ -33,7 +25,6 @@ export default function App() {
         <View style={styles.form}>
           <Input placeholder='Email' />
           <Input isPassword placeholder='Пароль' />
-          {/* <Button title='Войти' /> */}
           <Button text='Войти' onPress={alert} />
         </View>
         <Text>Восстановить пароль</Text>
