@@ -12,11 +12,14 @@ export default function App() {
   const width = Dimensions.get('window').width;
   const alert = () => {
     setError('Неверный логин и пароль');
+    setTimeout(() => {
+      setError('undefined');
+    }, 4000)
   }
 
   return (
     <View style={styles.container}>
-      <ErrorNotification error={error}/>
+      <ErrorNotification error={error} />
       <View style={styles.content}>
         <Image
           style={styles.logo}
