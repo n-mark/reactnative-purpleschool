@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions, TextInput, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TextInput, Image, Alert, ToastAndroid, Platform } from 'react-native';
 import { Input } from './shared/Input/Input';
 import { Button } from './shared/Button/Button';
 import { Colors, Gaps } from './shared/tokens';
@@ -8,6 +8,20 @@ import EyeOpenedIcon from './assets/icons/eye-opened';
 export default function App() {
   // получение размера устройства
   const width = Dimensions.get('window').width;
+  const alert = () => {
+    // Alert.alert('Ошибка', 'Неверный логин или пароль', [{
+    //   text: 'Хорошо',
+    //   onPress: () => {},
+    //   style: 'cancel'
+    // }]);
+    if (Platform.OS === 'android') {
+      ToastAndroid.showWithGravity(
+        'Неверный логин или пароль',
+        ToastAndroid.SHORT,
+        ToastAndroid.CENTER
+      );
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -20,7 +34,7 @@ export default function App() {
           <Input placeholder='Email' />
           <Input isPassword placeholder='Пароль' />
           {/* <Button title='Войти' /> */}
-          <Button text='Войти'/>
+          <Button text='Войти' onPress={alert} />
         </View>
         <Text>Восстановить пароль</Text>
       </View>
