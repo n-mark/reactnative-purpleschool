@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Pressable, PressableProps, Animated } from "react-native"
+import { StyleSheet, View, Text, Pressable, PressableProps, Animated, GestureResponderEvent } from "react-native"
 import { Colors, Fonts, Radius } from "../tokens";
 import { useEffect } from "react";
 
@@ -9,14 +9,28 @@ export function Button({ text, ...props }: PressableProps & { text: string }) {
         outputRange: [Colors.primaryHover, Colors.primary]
     });
 
-    Animated.timing(animatedValue, {
-        toValue: 0,
-        duration: 3000,
-        useNativeDriver: true
-    }).start();
+    const fadeIn = (e: GestureResponderEvent) => {
+        Animated.timing(animatedValue, {
+            toValue: 0,
+            duration: 50,
+            useNativeDriver: true
+        }).start();
+
+        props.onPressIn && props.onPressIn(e)
+    }
+
+    const fadeOut = (e: GestureResponderEvent) => {
+        Animated.timing(animatedValue, {
+            toValue: 100,
+            duration: 10,
+            useNativeDriver: true
+        }).start();
+
+        props.onPressOut && props.onPressOut(e)
+    }
 
     return (
-        <Pressable {...props}>
+        <Pressable {...props} onPressIn={fadeIn} onPressOut={fadeOut}>
             <Animated.View style={{
                 ...styles.button, backgroundColor: color
             }}>
