@@ -1,5 +1,6 @@
 import { StyleSheet, View, Text, Pressable, PressableProps, Animated } from "react-native"
 import { Colors, Fonts, Radius } from "../tokens";
+import { useEffect } from "react";
 
 export function Button({ text, ...props }: PressableProps & { text: string }) {
     const animatedValue = new Animated.ValueXY({
@@ -14,6 +15,14 @@ export function Button({ text, ...props }: PressableProps & { text: string }) {
         duration: 2000,
         useNativeDriver: true
     }).start();
+
+    // так делать не надо
+    // демонстрация отличия нативной анимации от ненативной
+    // useEffect(() => {
+    //     for (let index = 0; index < 10000; index++) {
+    //         console.log(index);
+    //     }
+    // }, [animatedValue])
 
     return (
         <Pressable {...props}>
