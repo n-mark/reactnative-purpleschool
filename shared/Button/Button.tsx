@@ -13,23 +13,13 @@ export function Button({ text, ...props }: PressableProps & { text: string }) {
             x: 100, y: 100
         },
         duration: 2000,
-        useNativeDriver: true
+        useNativeDriver: false
     }).start();
-
-    // так делать не надо
-    // демонстрация отличия нативной анимации от ненативной
-    // useEffect(() => {
-    //     for (let index = 0; index < 10000; index++) {
-    //         console.log(index);
-    //     }
-    // }, [animatedValue])
 
     return (
         <Pressable {...props}>
             <Animated.View style={{
-                ...styles.button, transform: [
-                    { translateX: animatedValue.x }, { translateY: animatedValue.y }
-                ]
+                ...styles.button, width: animatedValue.x, height: animatedValue.y
             }}>
                 <Text style={styles.text}>{text}</Text>
             </Animated.View>
