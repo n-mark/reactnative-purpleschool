@@ -10,7 +10,7 @@ export function ErrorNotification({ error }: ErrorNotificationProps) {
     const onEnter = () => {
         Animated.timing(animatedValue, {
             toValue: 0,
-            duration: 150,
+            duration: 100,
             useNativeDriver: true
         }).start(() => {
             console.log('animation end');
