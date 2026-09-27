@@ -1,18 +1,19 @@
-import { View, Text, ViewProps, StyleSheet } from "react-native";
+import { StyleSheet, Text, View, ViewProps } from 'react-native';
+import { Colors } from '../tokens';
 
 export function Alert(props: ViewProps) {
-    return (
-        <View {...props} style={styles.alert}>
-            <Text>'Неверный пароль'</Text>
-        </View>
-    )
+	return (
+		<View {...props} style={styles.alert}>
+			<Text>Неверный пароль</Text>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-    alert: {
-        alignSelf: 'stretch',
-        backgroundColor: "#CC384E",
-        width: 390,
-        height: 50
-    }
+	alert: {
+		alignSelf: 'stretch',
+		backgroundColor: Colors.red,
+		width: 390,
+		height: 50,
+	},
 });
