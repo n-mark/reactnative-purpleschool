@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import { Input } from './shared/Input/Input';
-import { Button } from './shared/Button/Button';
-import { Colors, Gaps } from './shared/tokens';
-import { ErrorNotification } from './shared/ErrorNotification/ErrorNotification';
 import { useState } from 'react';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+
+import { Button } from '../shared/Button/Button';
+import { ErrorNotification } from '../shared/ErrorNotification/ErrorNotification';
+import { Input } from '../shared/Input/Input';
+import { Colors, Gaps } from '../shared/tokens';
 
 export default function App() {
 	const [error, setError] = useState<string | undefined>();
@@ -21,7 +22,7 @@ export default function App() {
 		<View style={styles.container}>
 			<ErrorNotification error={error} />
 			<View style={styles.content}>
-				<Image style={styles.logo} source={require('./assets/logo.png')} resizeMode="contain" />
+				<Image style={styles.logo} source={require('../assets/logo.png')} resizeMode="contain" />
 				<View style={styles.form}>
 					<Input placeholder="Email" />
 					<Input isPassword placeholder="Пароль" />
