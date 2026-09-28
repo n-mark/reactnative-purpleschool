@@ -15,5 +15,11 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit",
 		"source.organizeImports": "explicit"
-	}
+	},
+	"typescript.suggest.autoImports": true,
+	"javascript.suggest.autoImports": true,
+	"typescript.preferences.includePackageJsonAutoImports": "auto",
+	"javascript.preferences.includePackageJsonAutoImports": "auto",
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"javascript.preferences.importModuleSpecifier": "non-relative"
 }
