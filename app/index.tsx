@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 import { Button } from '../shared/Button/Button';
 import { ErrorNotification } from '../shared/ErrorNotification/ErrorNotification';
 import { Input } from '../shared/Input/Input';
 import { Colors, Gaps } from '../shared/tokens';
+import { Link } from 'expo-router';
 
-export default function App() {
+export default function Login() {
 	const [error, setError] = useState<string | undefined>();
 
 	// получение размера устройства
-	const width = Dimensions.get('window').width;
+	// const width = Dimensions.get('window').width;
 	const alert = () => {
 		setError('Неверный логин и пароль');
 		setTimeout(() => {
@@ -28,7 +29,9 @@ export default function App() {
 					<Input isPassword placeholder="Пароль" />
 					<Button text="Войти" onPress={alert} />
 				</View>
-				<Text>Восстановить пароль</Text>
+				<Link href={'/restore'}>
+					<Text>Восстановить пароль</Text>
+				</Link>
 			</View>
 		</View>
 	);
