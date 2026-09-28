@@ -1,19 +1,25 @@
-import { Tabs } from 'expo-router';
+import { Colors } from '@/shared/tokens';
+import { Stack } from 'expo-router';
 
 export default function RootLayout() {
-	return <Tabs />;
+	return (
+		<Stack
+			screenOptions={{
+				// headerShown: false
+				contentStyle: {
+					backgroundColor: Colors.black,
+				},
+			}}
+		>
+			<Stack.Screen name="index" />
+			<Stack.Screen
+				name="restore"
+				options={{
+					presentation: 'modal',
+					// presentation: 'card',
+					// presentation: 'fullScreenModal',
+				}}
+			/>
+		</Stack>
+	);
 }
-
-// export default function RootLayout() {
-// 	return <Stack />;
-// }
-
-// export default function RootLayout() {
-// 	return (
-// 		<>
-// 			<Text>Header</Text>
-// 			<Slot />
-// 			<Text>Footer</Text>
-// 		</>
-// 	);
-// }
