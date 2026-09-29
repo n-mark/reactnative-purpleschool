@@ -1,3 +1,4 @@
+import { Colors } from '@/shared/tokens';
 import { Link } from 'expo-router';
 import { View, Text } from 'react-native';
 
@@ -5,7 +6,7 @@ export default function Restore() {
 	return (
 		<View>
 			<Link href={'/'}>
-				<Text>RESTORE</Text>
+				<Text style={{ color: Colors.textWhite }}>RESTORE</Text>
 			</Link>
 		</View>
 	);
