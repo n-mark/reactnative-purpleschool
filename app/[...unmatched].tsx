@@ -1,36 +1,41 @@
-import { Colors } from '@/shared/tokens';
-import { Link } from 'expo-router';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { CustomLink } from '@/shared/CustomLink/CustomLink';
+import { Colors, Fonts, Gaps } from '@/shared/tokens';
+import { Text, StyleSheet, Image, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function UnmatchedCustom() {
 	const message = 'Ооо... что-то пошло не так. Попробуйте вернуться на главный экран приложения';
 
 	return (
-		<View style={styles.container}>
-			<Image
-				style={styles.image}
-				source={require('../assets/images/unmatched.png')}
-				resizeMode="contain"
-			/>
-			<Text style={styles.text}>{message}</Text>
-			<Link style={styles.link} href={'/'}>
-				<Text>На главный экран</Text>
-			</Link>
-		</View>
+		<SafeAreaView style={styles.container}>
+			<View style={styles.content}>
+				<Image
+					style={styles.image}
+					source={require('../assets/images/unmatched.png')}
+					resizeMode="contain"
+				/>
+				<Text style={styles.text}>{message}</Text>
+				<CustomLink style={styles.link} href={'/'} text="На главный экран" />
+			</View>
+		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: 'center',
 		justifyContent: 'space-around',
-		padding: 140,
+		padding: 55,
+	},
+
+	content: {
+		alignItems: 'center',
+		gap: Gaps.g50,
 	},
 
 	image: {
 		width: 204,
-		height: 282,
+		height: 272,
 	},
 
 	text: {
@@ -38,7 +43,7 @@ const styles = StyleSheet.create({
 		width: 320,
 		height: 66,
 		fontFamily: 'Fira Sans',
-		fontSize: 18,
+		fontSize: Fonts.f18,
 		fontWeight: '400',
 		fontStyle: 'normal',
 		textAlign: 'center',
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
 	link: {
 		width: 280,
 		height: 22,
-		fontFamily: 'Fira Sans',
+		fontFamily: Fonts.regular,
 		fontSize: 18,
 		fontWeight: '400',
 		fontStyle: 'normal',

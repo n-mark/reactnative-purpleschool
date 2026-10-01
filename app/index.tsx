@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 import { Button } from '../shared/Button/Button';
 import { ErrorNotification } from '../shared/ErrorNotification/ErrorNotification';
 import { Input } from '../shared/Input/Input';
 import { Colors, Gaps } from '../shared/tokens';
-import { Link } from 'expo-router';
+import { CustomLink } from '@/shared/CustomLink/CustomLink';
 
 export default function Login() {
 	const [error, setError] = useState<string | undefined>();
@@ -29,9 +29,7 @@ export default function Login() {
 					<Input isPassword placeholder="Пароль" />
 					<Button text="Войти" onPress={alert} />
 				</View>
-				<Link href={'/restorez'}>
-					<Text>Восстановить пароль</Text>
-				</Link>
+				<CustomLink href={'/restorez'} text="Восстановить пароль" />
 			</View>
 		</View>
 	);
