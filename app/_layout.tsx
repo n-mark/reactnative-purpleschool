@@ -1,6 +1,6 @@
 import { Colors } from '@/shared/tokens';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -24,6 +24,10 @@ export default function RootLayout() {
 		}
 	}, [loaded]);
 
+	useEffect(() => {
+		router.replace('/');
+	}, []);
+
 	// if (!loaded) {
 	// 	return null;
 	// }
@@ -41,7 +45,8 @@ export default function RootLayout() {
 					headerShown: false,
 				}}
 			>
-				<Stack.Screen name="index" />
+				<Stack.Screen name="(app)" />
+				<Stack.Screen name="login" />
 				<Stack.Screen
 					name="restore"
 					options={{
