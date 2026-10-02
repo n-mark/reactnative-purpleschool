@@ -29,7 +29,7 @@ export default function Login() {
 					<Input isPassword placeholder="Пароль" />
 					<Button text="Войти" onPress={alert} />
 				</View>
-				<CustomLink href={'/course/somealias'} text="Восстановить пароль" />
+				<CustomLink href={'/app'} text="Восстановить пароль" />
 			</View>
 		</View>
 	);
