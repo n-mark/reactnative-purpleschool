@@ -4,31 +4,30 @@ import { Colors, Fonts } from '../tokens';
 import { ErrorNotificationProps } from './ErrorNotification.props';
 
 export function ErrorNotification({ error }: ErrorNotificationProps) {
-	const [isShown, setIsShown] = useState<boolean>(false);
-	const animatedValue = new Animated.Value(-100);
+	return error ? <ErrorToast key={error} error={error} /> : null;
+}
 
-	const onEnter = () => {
-		Animated.timing(animatedValue, {
+function ErrorToast({ error }: { error: string }) {
+	const [isShown, setIsShown] = useState(true);
+	const [animatedValue] = useState(() => new Animated.Value(-100));
+
+	useEffect(() => {
+		const animation = Animated.timing(animatedValue, {
 			toValue: 0,
 			duration: 100,
 			useNativeDriver: true,
-		}).start(() => {
-			console.log('animation end');
 		});
-	};
+		animation.start();
 
-	useEffect(() => {
-		if (!error) {
-			return;
-		}
-		setIsShown(true);
 		const timerId = setTimeout(() => {
 			setIsShown(false);
 		}, 3000);
+
 		return () => {
+			animation.stop();
 			clearTimeout(timerId);
 		};
-	}, [error]);
+	}, [animatedValue]);
 
 	if (!isShown) {
 		return <></>;
@@ -40,7 +39,6 @@ export function ErrorNotification({ error }: ErrorNotificationProps) {
 				...styles.error,
 				transform: [{ translateY: animatedValue }],
 			}}
-			onLayout={onEnter}
 		>
 			<Text style={styles.errorText}>{error}</Text>
 		</Animated.View>

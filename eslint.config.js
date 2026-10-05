@@ -2,12 +2,14 @@ const { defineConfig, globalIgnores } = require('eslint/config');
 const expoConfig = require('eslint-config-expo/flat');
 const prettierRecommended = require('eslint-plugin-prettier/recommended');
 const reactNative = require('eslint-plugin-react-native');
+const typescriptEslint = require('@typescript-eslint/eslint-plugin');
 
 module.exports = defineConfig([
 	expoConfig,
 	prettierRecommended,
 	{
 		plugins: {
+			'@typescript-eslint': typescriptEslint,
 			'react-native': reactNative,
 		},
 		rules: {
